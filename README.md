@@ -37,7 +37,7 @@ These components are shared by all environments.
 | [subnet.tf][vs] | Subnet |  |
 | [route.tf][vr] | Route table |  |
 | [gateway.tf][vgw] | Elastic IP, NAT Gateway, Internet Gateway |  |
-| [endpoints.tf][vep] | VPC Endpoints |  |
+| [endpoints.tf][vep] | VPC Endpoints | true |
 | [locals.tf][vl] | Local variables |  |
 | [variables.tf][vv] | Input variables |  |
 | [outputs.tf][vo] | Output variables |  |
@@ -47,7 +47,7 @@ These components are shared by all environments.
 |------|-------------|:----:|
 | [main.tf][em] | EC2 instance |  |
 | [ebs.tf][eeb] | Elastic Blob Storage |  |
-| [eip.tf][eip] | Elastic IP |  |
+| [eip.tf][eip] | Elastic IP | true |
 | [variables.tf][ev] | Input variables |  |
 | [outputs.tf][eo] | Output variables |  |
 
