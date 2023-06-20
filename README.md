@@ -1,6 +1,6 @@
 # Terraform AWS Template
 
-A set of Terraform predefined modules used for provisioning web application stacks on [AWS][fargate].
+A set of Terraform predefined modules used for provisioning web application stacks on [AWS](https://aws.amazon.com/).
 
 ![diagram](images/diagram.png)
 
