@@ -2,7 +2,6 @@
 
 ## Components
 
-#### vars
 | Name                | Description            | Optional |
 | ------------------- | ---------------------- | :------: |
 | [vars.tf][vaev]     | Environment definition |          |
