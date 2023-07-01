@@ -17,8 +17,6 @@ These AWS services are supported by current version.
 
 ## Components
 
-### main
-
 These components are shared by all environments.
 
 | Name              | Description                   | Optional |
@@ -76,24 +74,3 @@ $ terraform apply
 [mp]: ./provider.tf
 [mm]: ./main.tf
 [mo]: ./outputs.tf
-
-[vm]: ./modules/vpc/main.tf
-[vdz]: ./modules/vpc/data-zone.tf
-[vs]: ./modules/vpc/subnet.tf
-[vr]: ./modules/vpc/route.tf
-[vgw]: ./modules/vpc/gateway.tf
-[vep]: ./modules/vpc/endpoints.tf
-[vl]: ./modules/vpc/locals.tf
-[vv]: ./modules/vpc/variables.tf
-[vo]: ./modules/vpc/outputs.tf
-
-[em]: ./modules/ec2/main.tf
-[eeb]: ./modules/ec2/ebs.tf
-[eip]: ./modules/ec2/eip.tf
-[ev]: ./modules/ec2/variables.tf
-[eo]: ./modules/ec2/outputs.tf
-
-[vaev]: ./modules/vars/vars.tf
-[vav]: ./modules/vars/variables.tf
-[vao]: ./modules/vars/outputs.tf
-[vad]: ./modules/vars/dev.tf
