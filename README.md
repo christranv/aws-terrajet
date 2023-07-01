@@ -17,7 +17,7 @@ These AWS services are supported by current version.
 | CloudFront | CloudFront            |
 | EC2        | EC2 Instance          |
 
-## Components
+### Components
 
 These components are shared by all environments.
 

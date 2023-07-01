@@ -1,6 +1,6 @@
 # Elastic Compute Cloud (EC2) module
 
-## Components
+### Components
 
 | Name               | Description          | Optional |
 | ------------------ | -------------------- | :------: |
