@@ -13,12 +13,9 @@ terraform {
 }
 
 # Configure the AWS Provider
-# Notice if AWS_ACCESS_KEY is null, get from local AWS credentails file
 provider "aws" {
-  profile    = var.AWS_ACCESS_KEY == null ? module.vars.env.network.aws_profile : null
-  access_key = var.AWS_ACCESS_KEY
-  secret_key = var.AWS_SECRET_KEY
-  region     = module.vars.env.network.region
+  profile = module.vars.env.aws_profile
+  region  = module.vars.env.network.region
 
   default_tags {
     tags = {
@@ -26,13 +23,4 @@ provider "aws" {
       Environment = local.environment
     }
   }
-}
-
-data "aws_caller_identity" "current" {}
-
-# Configure the SOPS Provider
-provider "sops" {
-}
-data "sops_file" "secret_variables" {
-  source_file = "./sops/secrets.${local.environment}.yaml"
 }

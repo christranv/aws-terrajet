@@ -1,3 +1,13 @@
+locals {
+  environment = lower(terraform.workspace)
+  trust_ips   = module.vars.env.network.trust_ips
+}
+
+module "var" {
+  source      = "./vars"
+  environment = locals.environment
+}
+
 module "vpc" {
   source        = "./modules/vpc"
   main_cidr     = module.vars.env.network.cidr_main
@@ -8,7 +18,7 @@ module "vpc" {
   env           = local.environment
 }
 
-module "ec2-sample" {
+module "ec2-backend" {
   source                 = "./modules/ec2"
   project                = module.vars.env.project.name
   name                   = "ec2-sample"
