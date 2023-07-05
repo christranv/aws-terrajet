@@ -1,6 +1,6 @@
 # Terraform AWS Template
 
- ### This template is built to help you provision AWS services that you need for your monolith web application with back-end and Database on EC2 and front-end on S3 and CloudFront on [AWS](https://aws.amazon.com/).
+ #### This template is built to help you provision AWS services that you need for your monolith web application with back-end and Database on EC2 and front-end on S3 and CloudFront on [AWS](https://aws.amazon.com/).
 
 ![diagram](images/diagram.png)
 
