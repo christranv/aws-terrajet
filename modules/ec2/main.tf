@@ -1,5 +1,5 @@
 resource "aws_instance" "instance" {
-  count                  = var.is_spot ? 0 : 1
+  count                  = var.use_spot ? 0 : 1
   ami                    = var.ami
   instance_type          = var.instance_type
   availability_zone      = var.availability_zone
@@ -25,7 +25,7 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_spot_instance_request" "spot-instance" {
-  count                  = var.is_spot ? 1 : 0
+  count                  = var.use_spot ? 1 : 0
   ami                    = var.ami
   instance_type          = var.instance_type
   availability_zone      = var.availability_zone

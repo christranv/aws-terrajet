@@ -1,32 +1,29 @@
 variable "project" {
-  type        = string
-  description = "project name"
+  type = string
 }
 variable "env" {
-  type        = string
-  description = "environment"
+  type = string
 }
 variable "name" {
-  type        = string
-  description = "name to be used on EC2 instance created"
+  type = string
 }
 
 #########################
 # Spot instance
 #########################
-variable "is_spot" {
+variable "use_spot" {
   type        = bool
-  description = "weather to create spot instance instead of on-demand"
+  description = "Create create spot instance instead of on-demand"
   default     = false
 }
 variable "spot_price" {
   type        = number
-  description = "Required when is_spot=true"
+  description = "Required if use_spot=true"
   default     = 0
 }
 variable "region" {
   type        = string
-  description = "Required when is_spot=true"
+  description = "Required if use_spot=true"
   default     = null
 }
 #########################
@@ -34,49 +31,46 @@ variable "region" {
 #########################
 
 variable "ami" {
-  type        = string
-  description = "id of AMI to use for the instance"
+  type = string
 }
 variable "instance_type" {
-  type        = string
-  description = "the type of instance to start"
+  type = string
 }
 variable "availability_zone" {
-  type        = string
-  description = "az to start the instance in"
+  type = string
 }
 variable "root_size" {
   type        = number
-  description = "root storage size"
+  description = "Root storage size"
   default     = null
 }
 variable "ebs_size" {
   type        = number
-  description = "external storage size"
+  description = "External storage size"
   default     = null
 }
 variable "key_name" {
   type        = string
-  description = "key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource"
+  description = "Key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource"
   default     = null
 }
 variable "user_data" {
   type        = any
-  description = "user data to provide when launching the instance"
+  description = "Script to run when launching the instance"
   default     = null
 }
 variable "subnet_id" {
   type        = string
-  description = "the VPC Subnet ID to launch in"
+  description = "VPC Subnet ID to launch instance in"
   default     = null
 }
 variable "vpc_security_group_ids" {
   type        = list(string)
-  description = "a list of security group IDs to associate with"
+  description = "List of security group IDs to associate with"
   default     = null
 }
 variable "assign_public_ip" {
   type        = bool
-  description = "create public ip for instance"
+  description = "Create public ip for instance"
   default     = false
 }
