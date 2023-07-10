@@ -12,6 +12,7 @@ locals {
       private_cidrs = ["10.0.128.0/19", "10.0.160.0/19"]
       trust_ips     = []
     }
+    fe_domain_name = "aws-terraform.tk"
     ec2_api = {
       availability_zone = "ap-southeast-1c"
       instance_type     = "t2.micro"

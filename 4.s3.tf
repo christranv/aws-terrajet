@@ -6,6 +6,13 @@ module "s3_static_web_app" {
   is_public         = false
   is_destroy        = false
   enable_static_web = true
+  init_folders = {
+    root = {
+      localBasePath = "assets/s3-static-web-app"
+      s3BasePath    = "/"
+      acl           = "public-read"
+    }
+  }
 }
 
 module "s3_static_web_app-policy" {

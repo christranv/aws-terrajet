@@ -1,5 +1,5 @@
 {
-  "Version": "2008-10-17",
+  "Version": "2023-07-10",
   "Id": "PolicyForCloudFrontPrivateContent",
   "Statement": [
     {
