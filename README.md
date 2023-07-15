@@ -1,9 +1,8 @@
 # AWS TerraJet - For Your Monolith
-
  This template is built to help you provision [AWS](https://aws.amazon.com/) services that you need for your monolith web application. Save your time on researching and deploy infrastructure with IaC tool like Terraform.
-#### Features:
+## Features:
 - Support deploying Single-page application (React, Angular, Vue) to S3 and cached by CloudFront.
-- Support deploying Dockerized API to ECS cluster.
+- Support deploying and scaling **Dockerized** API to ECS cluster.
 - Support deploying SQL database to RDS.
 - Provide TLS/SSL certificate with ACM
 - Provide microservices adaptability for your future growth.
