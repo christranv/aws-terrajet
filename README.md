@@ -1,12 +1,18 @@
-# Terraform AWS Template
+# AWS TerraJet - For Your Monolith
 
- This template is built to help you provision AWS services that you need for your monolith web application with back-end and Database on EC2 and front-end on S3 and CloudFront on [AWS](https://aws.amazon.com/).
+ This template is built to help you provision [AWS](https://aws.amazon.com/) services that you need for your monolith web application. Save your time on researching and deploy infrastructure with IaC tool like Terraform.
+#### Features:
+- Support deploying Single-page application (React, Angular, Vue) to S3 and cached by CloudFront.
+- Support deploying Dockerized API to ECS cluster.
+- Support deploying SQL database to RDS.
+- Provide TLS/SSL certificate with ACM
+- Provide microservices adaptability for your future growth.
 
 ![diagram](images/diagram.png)
 
-## Supported Services
+## Supported modules
 
-These AWS services are supported by current version.
+These AWS modules are supported by current version.
 
 | Name                | Description           |
 | ------------------- | --------------------- |
@@ -17,16 +23,6 @@ These AWS services are supported by current version.
 | [RDS][rds]          | RDS                   |
 | [EC2][ec2]          | EC2 Instance          |
 | [Route53][r53]      | Route 53              |
-
-### Components
-
-These components are shared by all environments.
-
-| Name              | Description                   | Optional |
-| ----------------- | ----------------------------- | :------: |
-| [provider.tf][mp] | AWS provider                  |          |
-| [main.tf][mm]     | AWS provider, output          |          |
-| [outputs.tf][mo]  | Output variables after deploy |          |  |
 
 [aws]: https://aws.amazon.com/
 
