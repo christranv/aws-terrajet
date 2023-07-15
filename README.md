@@ -14,6 +14,7 @@ These AWS services are supported by current version.
 | [SecurityGroup][sg] | Security Group        |
 | [S3][s3]            | S3                    |
 | [CloudFront][cf]    | CloudFront            |
+| [RDS][rds]          | RDS                   |
 | [EC2][ec2]          | EC2 Instance          |
 | [Route53][r53]      | Route 53              |
 
@@ -30,11 +31,12 @@ These components are shared by all environments.
 [aws]: https://aws.amazon.com/
 
 [vpc]: ./modules/vpc
-[sg]: ./modules/vpc
-[s3]: ./modules/vpc
-[cf]: ./modules/vpc
-[ec2]: ./modules/vpc
-[r53]: ./modules/vpc
+[sg]: ./modules/security-group
+[s3]: ./modules/s3
+[cf]: ./modules/cloudfront
+[rds]: ./modules/rds
+[ec2]: ./modules/ec2
+[r53]: ./modules/route-53
 
 [mp]: ./provider.tf
 [mm]: ./main.tf

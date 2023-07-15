@@ -1,5 +1,5 @@
 module "rds_db_sg" {
-  source                    = "./modules/securitygroup"
+  source                    = "./modules/security-group"
   project                   = module.vars.env.project.name
   env                       = local.environment
   sg_name                   = "rds_db"
@@ -8,7 +8,7 @@ module "rds_db_sg" {
 }
 
 module "ec2_api_sg" {
-  source  = "./modules/securitygroup"
+  source  = "./modules/security-group"
   project = module.vars.env.project.name
   env     = local.environment
   sg_name = "ec2-api"
