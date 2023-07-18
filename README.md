@@ -1,6 +1,13 @@
 # Terraform AWS Template
 
-A set of Terraform predefined modules used for provisioning web application stacks on [AWS][fargate].
+This template is built to help you provision [AWS](https://aws.amazon.com/) services that you need for your monolith web application. Save your time on researching and deploy infrastructure with IaC tool like Terraform.
+## Features:
+- Support deploying Single-page application (React, Angular, Vue) to S3 and cached by CloudFront.
+- Support deploying and scaling **Dockerized** API app to ECS cluster.
+- Provide role-based access control for API app.
+- Support deploying SQL database to RDS.
+- Provide TLS/SSL certificate with ACM
+- Provide Microservices adaptability for your future growth.
 
 ![diagram](images/diagram.png)
 
