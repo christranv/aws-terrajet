@@ -1,14 +1,11 @@
 variable "account_id" {
-  type        = string
-  description = "account id"
+  type = string
 }
 
 variable "bucket_name" {
-  type        = string
-  description = "bucket name"
+  type = string
 }
 
 variable "cloudfront_dist_id" {
-  type        = string
-  description = "cloudfront distribution id"
+  type = string
 }
