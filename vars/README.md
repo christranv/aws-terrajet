@@ -1,11 +1,10 @@
 # Environment Variable module
 
-## Components
+### Components
 
-#### vars
 | Name                | Description            | Optional |
 | ------------------- | ---------------------- | :------: |
-| [vars.tf][vaev]     | Environment definition |          |
+| [main.tf][vaev]     | Environment definition |          |
 | [variables.tf][vav] | Input variables        |          |
 | [outputs.tf][vao]   | Output variables       |          |
 | [dev.tf][vad]       | Dev environment        |          |

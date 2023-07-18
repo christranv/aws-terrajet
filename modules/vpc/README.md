@@ -1,6 +1,6 @@
 # Virtual Private Cloud module
 
-## Components
+### Components
 
 | Name                | Description                               | Optional |
 | ------------------- | ----------------------------------------- | :------: |

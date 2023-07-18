@@ -1,6 +1,5 @@
-#NAT GATEWAY for private subnet
 resource "aws_eip" "nat_gateway_eip" {
-  count = var.private_cidrs != null ? (var.only_one_nat_gateway == true ? 1 : length(var.private_cidrs)) : 0
+  count = var.private_cidrs != null ? (var.use_one_nat_gateway == true ? 1 : length(var.private_cidrs)) : 0
   vpc   = true
 
   tags = {
@@ -13,7 +12,7 @@ resource "aws_eip" "nat_gateway_eip" {
 }
 
 resource "aws_nat_gateway" "nat_gateway" {
-  count = var.private_cidrs != null ? (var.only_one_nat_gateway ? 1 : length(var.private_cidrs)) : 0
+  count = var.private_cidrs != null ? (var.use_one_nat_gateway ? 1 : length(var.private_cidrs)) : 0
 
   allocation_id = aws_eip.nat_gateway_eip[count.index].id
   subnet_id     = aws_subnet.public_subnet[count.index].id

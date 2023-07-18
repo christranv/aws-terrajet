@@ -1,40 +1,28 @@
-variable "main_cidr" {
-  type        = string
-  description = "main vpc cidr"
-}
-
-variable "region" {
-  type        = string
-  description = "region"
-}
-
 variable "project" {
-  type        = string
-  description = "project name"
+  type = string
 }
 
 variable "env" {
-  type        = string
-  description = "deploy environment"
+  type = string
+}
+
+variable "main_cidr" {
+  type = string
+}
+
+variable "region" {
+  type = string
 }
 
 variable "public_cidrs" {
-  type        = list(string)
-  description = "public subnet"
+  type = list(string)
 }
 
 variable "private_cidrs" {
-  type        = list(string)
-  description = "private subnet"
+  type = list(string)
 }
 
-variable "only_one_nat_gateway" {
-  type        = bool
-  default     = true
-  description = "create one nat gateway"
+variable "use_one_nat_gateway" {
+  type    = bool
+  default = true
 }
-
-
-
-
-
