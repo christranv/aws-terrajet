@@ -19,8 +19,7 @@ variable "instance_class" {
 }
 
 variable "sg_ids" {
-  type        = list(string)
-  description = "Security group IDs"
+  type = list(string)
 }
 
 variable "port" {

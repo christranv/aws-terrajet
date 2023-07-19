@@ -1,13 +1,13 @@
 output "cloudfront_id" {
-  value = aws_cloudfront_distribution.s3_distribution.id
+  value = aws_cloudfront_distribution.this.id
 }
 
 output "cloudfront_domain_name" {
-  value = aws_cloudfront_distribution.s3_distribution.domain_name
+  value = aws_cloudfront_distribution.this.domain_name
 }
 
 output "cloudfront_hosted_zone_id" {
-  value = aws_cloudfront_distribution.s3_distribution.hosted_zone_id
+  value = aws_cloudfront_distribution.this.hosted_zone_id
 }
 
 output "cloudfront_signing_public_key_id" {

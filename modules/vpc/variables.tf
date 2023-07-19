@@ -6,11 +6,11 @@ variable "env" {
   type = string
 }
 
-variable "main_cidr" {
+variable "region" {
   type = string
 }
 
-variable "region" {
+variable "main_cidr" {
   type = string
 }
 

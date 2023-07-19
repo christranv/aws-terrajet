@@ -34,12 +34,12 @@ provider "aws" {
   }
 }
 
-module "vars" {
-  source      = "./vars"
-  environment = locals.environment
-}
-
 locals {
   environment = lower(terraform.workspace)
   trust_ips   = module.vars.env.network.trust_ips
+}
+
+module "vars" {
+  source      = "./vars"
+  environment = locals.environment
 }

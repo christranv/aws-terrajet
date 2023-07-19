@@ -1,4 +1,4 @@
-module "s3_static_web_app" {
+module "s3_web_app" {
   source            = "./modules/s3"
   project           = module.vars.env.project.name
   env               = local.environment
@@ -15,9 +15,9 @@ module "s3_static_web_app" {
   }
 }
 
-module "s3_static_web_app-policy" {
+module "s3_web_app_policy" {
   source             = "./modules/policy/s3-bucket-policy"
   account_id         = module.vars.env.account_id
-  bucket_name        = module.s3_static_web_app.bucket_name
-  cloudfront_dist_id = module.cloudfront_static_web.cloudfront_id
+  bucket_name        = module.s3_web_app.bucket_name
+  cloudfront_dist_id = module.cloudfront_web_app.cloudfront_id
 }

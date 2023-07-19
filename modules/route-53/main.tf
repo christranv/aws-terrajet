@@ -1,15 +1,14 @@
 #Create HostedZone
 resource "aws_route53_zone" "hostedzone" {
-  name          = var.domain_main
-  comment       = "DNS for ${var.domain_main} on ${var.env} environment of ${var.project} project"
+  name          = var.domain_name
+  comment       = "DNS for ${var.domain_name} on ${var.env} environment of ${var.project} project"
   force_destroy = false
 }
 
 resource "aws_route53_record" "alias" {
-  zone_id = aws_route53_zone.hostedzone.id # See aws_route53_zone for how to create this
-
-  name = var.domain_name
-  type = "A"
+  zone_id = aws_route53_zone.hostedzone.id
+  name    = var.domain_name
+  type    = "A"
 
   alias {
     name                   = var.regional_domain_name

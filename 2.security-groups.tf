@@ -7,7 +7,7 @@ module "rds_db_sg" {
   ingress_port_cidr_targets = []
 }
 
-module "ec2_api_sg" {
+module "ecs_sg" {
   source  = "./modules/security-group"
   project = module.vars.env.project.name
   env     = local.environment
