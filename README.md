@@ -1,6 +1,11 @@
 <img style="text-align: center;" src="images/logo.png"/>
 <h1 style="text-align: center;">Built For Your Monolith</h1>
 
+![terraform](https://img.shields.io/badge/Terraform-1%2E5%2E2-5b4de3?style=for-the-badge&logo=terraform&logoColor=white)&nbsp;
+![aws](https://img.shields.io/badge/AWS-5%2E3%2E7-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)&nbsp;
+![docker](https://img.shields.io/badge/Docker-latest-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)&nbsp;
+![nodejs](https://img.shields.io/badge/Node.js-18-3C873A?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
 TerraJet follows [AWS][aws] best practices to help your infrastructure archives reliability, security, performance, and cost optimization. Save your time on researching and deploying. TerraJet will give you the easiest way to approach Infrastructure as Code (IaC) frameworks like Terraform.
 
 **Table of Contents**
