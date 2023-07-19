@@ -8,7 +8,7 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 - [Design](#design)
 - [Supported modules](#supported-modules)
 - [Frequently Asked Questions](#frequently-asked-questions)
-		- [Q: Why ECS is used for deploying monolith app?](#q-why-ecs-is-used-for-deploying-monolith-app)
+	- [Q: Why ECS is used for deploying monolith app?](#q-why-ecs-is-used-for-deploying-monolith-app)
 
 ## Features
 - Support deploying Single-page application (React, Angular, Vue) to S3 and cached by CloudFront.
@@ -37,8 +37,7 @@ These AWS Terraform modules are supported by current version.
 | [Route53][r53]      | Route 53              |
 
 ## Frequently Asked Questions
-
-#### Q: Why ECS is used for deploying monolith app?
+### Q: Why ECS is used for deploying monolith app?
 [TODO] Answer here
 
 [aws]: https://aws.amazon.com/
