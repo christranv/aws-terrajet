@@ -48,7 +48,6 @@ variable "enable_signed_url" {
 }
 
 variable "signed_urls_public_key" {
-  type        = any
-  description = "Signed URLs public key"
-  default     = null
+  type    = any
+  default = null
 }

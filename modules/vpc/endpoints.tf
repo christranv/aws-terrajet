@@ -1,5 +1,5 @@
 resource "aws_vpc_endpoint" "s3_endpoint" {
-  vpc_id            = aws_vpc.vpc.id
+  vpc_id            = aws_vpc.this.id
   vpc_endpoint_type = "Gateway"
   service_name      = "com.amazonaws.${var.region}.s3"
 }

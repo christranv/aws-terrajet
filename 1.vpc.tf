@@ -1,10 +1,9 @@
-
 module "vpc" {
   source        = "./modules/vpc"
-  main_cidr     = module.vars.env.network.cidr_main
-  public_cidrs  = module.vars.env.network.public_cidrs
-  private_cidrs = module.vars.env.network.private_cidrs
-  project       = module.vars.env.project.name
-  region        = module.vars.env.network.region
+  project       = local.vars.project
   env           = local.environment
+  region        = local.vars.region
+  main_cidr     = local.vars.network.cidr_main
+  public_cidrs  = local.vars.network.public_cidrs
+  private_cidrs = local.vars.network.private_cidrs
 }

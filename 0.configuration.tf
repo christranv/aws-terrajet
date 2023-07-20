@@ -10,12 +10,12 @@ terraform {
 }
 
 provider "aws" {
-  profile = module.vars.env.aws_profile
-  region  = module.vars.env.network.region
+  profile = local.vars.profile
+  region  = local.vars.region
 
   default_tags {
     tags = {
-      Project     = module.vars.env.project.name
+      Project     = local.vars.project
       Environment = local.environment
     }
   }
@@ -23,23 +23,23 @@ provider "aws" {
 
 # Only used to create ACM for cloudfront (because ACM and CloundFront use us-east-1 region)
 provider "aws" {
-  profile = module.vars.env.aws_profile
+  profile = local.vars.profile
   alias   = "us-east-1"
   region  = "us-east-1"
   default_tags {
     tags = {
-      Project     = module.vars.env.project.name
+      Project     = local.vars.project
       Environment = local.environment
     }
   }
 }
 
-module "vars" {
-  source      = "./vars"
-  environment = locals.environment
-}
-
 locals {
   environment = lower(terraform.workspace)
-  trust_ips   = module.vars.env.network.trust_ips
+  vars        = module.envs.env
+}
+
+module "envs" {
+  source      = "./envs"
+  environment = local.environment
 }

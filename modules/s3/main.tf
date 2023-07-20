@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "s3-bucket" {
+resource "aws_s3_bucket" "this" {
   bucket        = "${lower(var.project)}-${lower(var.env)}-${var.name}"
   force_destroy = var.is_destroy
   tags = {
@@ -6,20 +6,20 @@ resource "aws_s3_bucket" "s3-bucket" {
   }
 }
 
-resource "aws_s3_bucket_versioning" "versioning" {
+resource "aws_s3_bucket_versioning" "this" {
   count  = var.enable_bucket_versioning ? 1 : 0
-  bucket = aws_s3_bucket.s3-bucket.id
+  bucket = aws_s3_bucket.this.id
   versioning_configuration {
     status = "Enabled"
   }
 }
-resource "aws_s3_bucket_acl" "bucket-acl" {
-  bucket = aws_s3_bucket.s3-bucket.id
+resource "aws_s3_bucket_acl" "this" {
+  bucket = aws_s3_bucket.this.id
   acl    = var.is_public ? "public-read" : "private"
 }
 
-resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
-  bucket = aws_s3_bucket.s3-bucket.id
+resource "aws_s3_bucket_public_access_block" "this" {
+  bucket = aws_s3_bucket.this.id
 
   block_public_acls       = false
   block_public_policy     = false
@@ -27,9 +27,9 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   restrict_public_buckets = true
 }
 
-resource "aws_s3_bucket_website_configuration" "s3-static-website" {
+resource "aws_s3_bucket_website_configuration" "this" {
   count  = var.enable_static_web ? 1 : 0
-  bucket = aws_s3_bucket.s3-bucket.bucket
+  bucket = aws_s3_bucket.this.bucket
 
   index_document {
     suffix = "index.html"
@@ -52,7 +52,7 @@ locals {
 
 resource "aws_s3_object" "init_objects" {
   for_each = { for item in local.init_objects : item.key => item }
-  bucket   = aws_s3_bucket.s3-bucket.id
+  bucket   = aws_s3_bucket.this.id
   acl      = each.value.acl
   key      = "${each.value.s3BasePath}/${each.value.file}"
   source   = "${each.value.localBasePath}/${each.value.file}"

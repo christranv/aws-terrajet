@@ -5,7 +5,7 @@ resource "aws_cloudfront_origin_access_control" "this" {
   signing_protocol                  = "sigv4"
 }
 
-resource "aws_cloudfront_distribution" "s3_distribution" {
+resource "aws_cloudfront_distribution" "this" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = var.enable_static_web ? "index.html" : null
@@ -22,7 +22,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     target_origin_id = var.bucket_name
     compress         = true
 
-    trusted_key_groups = var.enable_signed_url ? [aws_cloudfront_key_group.documents_signing_key_group[0].id] : []
+    trusted_key_groups = var.enable_signed_url ? [aws_cloudfront_key_group.signed_urls_key_group[0].id] : []
 
     cache_policy_id            = aws_cloudfront_cache_policy.this.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.this.id

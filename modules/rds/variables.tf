@@ -6,6 +6,10 @@ variable "env" {
   type = string
 }
 
+variable "name" {
+  type = string
+}
+
 variable "engine" {
   type = string
 }
@@ -18,17 +22,12 @@ variable "instance_class" {
   type = string
 }
 
-variable "sg_ids" {
-  type        = list(string)
-  description = "Security group IDs"
-}
-
 variable "port" {
   type = number
 }
 
 variable "allocated_storage" {
-  type = string
+  type = number
 }
 
 variable "username" {
@@ -37,4 +36,12 @@ variable "username" {
 
 variable "password" {
   type = string
+}
+
+variable "subnet_ids" {
+  type = set(string)
+}
+
+variable "sg_ids" {
+  type = set(string)
 }

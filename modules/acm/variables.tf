@@ -6,21 +6,6 @@ variable "env" {
   type = string
 }
 
-variable "domain_main" {
+variable "domain_name" {
   type = string
 }
-
-variable "region" {
-  type = string
-}
-
-variable "is_import_ssl" {
-  type        = bool
-  description = "If import SSL from local machine"
-  default     = false
-}
-
-
-
-
-
