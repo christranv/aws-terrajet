@@ -1,8 +1,8 @@
 module "cloudfront_web_app_acm" {
   source      = "./modules/acm"
-  project     = module.vars.env.project.name
+  project     = local.vars.project
   env         = local.environment
-  domain_main = module.vars.env.domain
+  domain_name = local.vars.route53.domain
   providers = {
     aws = aws.us-east-1
   }
@@ -10,10 +10,10 @@ module "cloudfront_web_app_acm" {
 
 module "cloudfront_web_app" {
   source                      = "./modules/cloudfront"
-  project                     = module.vars.env.project.name
+  project                     = local.vars.project
   env                         = local.environment
-  domain                      = module.vars.env.domain
-  allow_domains               = [module.vars.env.domain]
+  domain                      = local.vars.route53.domain
+  allow_domains               = [local.vars.route53.domain]
   cert_arn                    = module.cloudfront_web_app_acm.cert_arn
   enable_static_web           = true
   bucket_name                 = module.s3_web_app.bucket_name

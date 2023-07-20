@@ -1,0 +1,48 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ECRAuthorization",
+      "Effect": "Allow",
+      "Action": "ecr:GetAuthorizationToken",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowedPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetRole",
+        "lambda:InvokeFunction",
+        "lambda:GetFunctionConfiguration",
+        "lambda:GetFunctionUrlConfig",
+        "lambda:UpdateFunctionConfiguration",
+        "s3:DeleteObjectVersion",
+        "s3:DeleteObjectTagging",
+        "s3:ListBucket",
+        "s3:GetObjectAcl",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:PutObjectAcl",
+        "s3:DeleteObjectVersionTagging",
+        "cloudfront:CreateInvalidation",
+        "ecr:PutImage",
+        "ecr:UploadLayerPart",
+        "ecr:CompleteLayerUpload",
+        "ecs:UpdateService",
+        "ecr:InitiateLayerUpload",
+        "ecr:BatchCheckLayerAvailability",
+        "lambda:UpdateFunctionCode"
+      ],
+      "Resource": [
+        "arn:aws:s3:::${web_app_bucket_name}",
+        "arn:aws:s3:::${web_app_bucket_name}/*",
+        "arn:aws:iam::${account_id}:role/*",
+        "arn:aws:lambda:${region}:${account_id}:function:*",
+        "arn:aws:ecr:${region}:${account_id}:repository/*",
+        "arn:aws:ecs:${region}:${account_id}:service/${ecs_cluster_name}/*",
+        "arn:aws:cloudfront::${account_id}:distribution/${web_app_distribution_id}"
+      ]
+    }
+  ]
+}

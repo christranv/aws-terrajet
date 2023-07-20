@@ -1,4 +1,3 @@
-# Create ECR
 resource "aws_ecr_repository" "this" {
   for_each             = var.ecs_services
   name                 = "${var.name_prefix != null ? format("%s-", var.name_prefix) : ""}${each.key}"
@@ -21,11 +20,11 @@ resource "aws_ecr_lifecycle_policy" "this" {
     "rules": [
         {
             "rulePriority": 10,
-            "description": "Keep last ${keep_last} images any",
+            "description": "Keep last ${var.keep_last} images any",
             "selection": {
                 "tagStatus": "any",
                 "countType": "imageCountMoreThan",
-                "countNumber": ${keep_last}
+                "countNumber": ${var.keep_last}
             },
             "action": {
                 "type": "expire"

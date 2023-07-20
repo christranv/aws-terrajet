@@ -2,7 +2,7 @@
 locals {
   scalable_services = { for k, v in var.ecs_services : k => v if v.min_task < v.max_task && v.max_task > 1 }
   cpu = {
-    scale_out_threshold = 60
+    scale_out_threshold = 70
     scale_in_threshold  = 30
     scale_out_period    = 30
     scale_in_period     = 60

@@ -22,7 +22,7 @@ resource "aws_cloudfront_distribution" "this" {
     target_origin_id = var.bucket_name
     compress         = true
 
-    trusted_key_groups = var.enable_signed_url ? [aws_cloudfront_key_group.documents_signing_key_group[0].id] : []
+    trusted_key_groups = var.enable_signed_url ? [aws_cloudfront_key_group.signed_urls_key_group[0].id] : []
 
     cache_policy_id            = aws_cloudfront_cache_policy.this.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.this.id

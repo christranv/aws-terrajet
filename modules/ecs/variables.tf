@@ -87,10 +87,6 @@ variable "spot_price" {
   type = string
 }
 
-variable "keypair_name" {
-  type = string
-}
-
 variable "repository_urls" {
   description = "ECR repository urls"
   type        = map(any)
@@ -102,9 +98,9 @@ variable "vpc_id" {
 
 variable "service_placement_constraints" {
   type    = list(any)
-  default = {}
+  default = []
 }
 
 variable "service_ordered_placement_strategies" {
-  type = list(any)
+  type = list(object({ type = string, field = string }))
 }

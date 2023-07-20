@@ -31,19 +31,13 @@ resource "aws_ecs_service" "this" {
     security_groups = var.sg_ids
     subnets         = var.private_subnet_ids
   }
-  dynamic "load_balancer" {
-    for_each = each.value.use_private_nlb || each.value.use_public_nlb ? [1] : []
-    content {
-      target_group_arn = lookup(var.target_group_arns, each.key)
-      container_name   = each.key
-      container_port   = lookup(var.ecs_services, each.key).container_port
-    }
+  load_balancer {
+    target_group_arn = lookup(var.target_group_arns, each.key)
+    container_name   = each.key
+    container_port   = lookup(var.ecs_services, each.key).container_port
   }
-  dynamic "service_registries" {
-    for_each = var.ecs_services[each.key].is_api ? [1] : []
-    content {
-      registry_arn = aws_service_discovery_service.this[each.key].arn
-    }
+  service_registries {
+    registry_arn = aws_service_discovery_service.this[each.key].arn
   }
   deployment_circuit_breaker {
     enable   = true

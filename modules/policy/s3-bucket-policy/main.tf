@@ -1,4 +1,4 @@
-data "template_file" "s3-bucket-policy-template" {
+data "template_file" "this" {
   template = file("${path.module}/templates/s3-bucket-policy.json")
   vars = {
     account_id         = var.account_id
@@ -9,5 +9,5 @@ data "template_file" "s3-bucket-policy-template" {
 
 resource "aws_s3_bucket_policy" "this" {
   bucket = var.bucket_name
-  policy = data.template_file.s3-bucket-policy-template.rendered
+  policy = data.template_file.this.rendered
 }

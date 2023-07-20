@@ -1,14 +1,15 @@
 module "rds_db" {
   source            = "./modules/rds"
-  project           = module.vars.env.project.name
+  project           = local.vars.project
   env               = local.environment
   name              = "main"
-  engine            = module.vars.env.rds.engine
-  engine_version    = module.vars.env.rds.engine_version
-  instance_class    = module.vars.env.rds.instance_class
-  sg_ids            = [module.rds_db_sg.sg_id]
-  port              = module.vars.env.rds.port
-  username          = module.vars.env.rds.username
-  password          = module.vars.env.rds.password
-  allocated_storage = module.vars.env.rds.allocated_storage
+  engine            = local.vars.rds.engine
+  engine_version    = local.vars.rds.engine_version
+  instance_class    = local.vars.rds.instance_class
+  port              = local.vars.rds.port
+  username          = local.vars.rds.username
+  password          = var.rds_db_password
+  allocated_storage = local.vars.rds.allocated_storage
+  subnet_ids        = module.vpc.private_subnet_ids
+  sg_ids            = [module.rds_sg.id]
 }

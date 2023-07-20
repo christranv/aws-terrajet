@@ -5,7 +5,7 @@ resource "aws_service_discovery_private_dns_namespace" "this" {
 }
 
 resource "aws_service_discovery_service" "this" {
-  for_each = { for k, v in var.ecs_services : k => v if v.is_api }
+  for_each = var.ecs_services
   name     = each.key
 
   dns_config {
