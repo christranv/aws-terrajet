@@ -31,26 +31,42 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 ## Supported modules
 These AWS Terraform modules are supported by current version.
 
-| Name                | Description           |
-| ------------------- | --------------------- |
-| [VPC][vpc]          | Virtual Private Cloud |
-| [SecurityGroup][sg] | Security Group        |
-| [S3][s3]            | S3                    |
-| [CloudFront][cf]    | CloudFront            |
-| [RDS][rds]          | RDS                   |
-| [EC2][ec2]          | EC2 Instance          |
-| [Route53][r53]      | Route 53              |
+| Name                   | Description                       |
+| ---------------------- | --------------------------------- |
+| [IAM][iam]             | Identity and Access Management    |
+| [Policy][plc]          | IAM Policy                        |
+| [VPC][vpc]             | Virtual Private Cloud             |
+| [SecurityGroup][sg]    | Security Group                    |
+| [S3][s3]               | S3                                |
+| [CloudFront][cf]       | CloudFront                        |
+| [RDS][rds]             | Relational Database Service (RDS) |
+| [KeyPair][kp]          | EC2 KeyPair                       |
+| [ECR][ecr]             | Elastic Container Registry        |
+| [ECS][ecs]             | Elastic Container Service         |
+| [Logs][lgs]            | CloudWatch Logs                   |
+| [Route53][r53]         | Route 53                          |
+| [Route53 Record][r53r] | Route 53 Record                   |
+| [ACM][acm]             | AWS Certificate Manager           |
 
 [aws]: https://aws.amazon.com/
+[iam]: ./modules/iam
+[plc]: ./modules/policy
 [vpc]: ./modules/vpc
 [sg]: ./modules/security-group
 [s3]: ./modules/s3
 [cf]: ./modules/cloudfront
 [rds]: ./modules/rds
-[ec2]: ./modules/ec2
+[kp]: ./modules/keypair
+[ecr]: ./modules/ecr
+[ecs]: ./modules/ecs
+[lgs]: ./modules/logs
 [r53]: ./modules/route-53
+[r53r]: ./modules/route-53-record
+[acm]: ./modules/acm
 
 ## Installation
+- Generate SSH for EC2 instances in ECS
+  `ssh-keygen -t ed25519 -f ~/.ssh/terrajet_dev_ec2_id_ed25519`
 
 ## FAQ
 ### Q: Why ECS is used for monolith app?
