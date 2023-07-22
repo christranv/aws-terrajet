@@ -106,9 +106,9 @@ This instruction can be used for **all environments** with **Development (Dev) e
 	s3_web_app_bucket_name = "terrajet-dev-static-web-app"
 	```
 	1. Update Route53 NS to your domain provider.
-	2. Go to **/apps** folder and update `deploy.sh` file with above values.
-12. Go to **/apps** folder and run `deploy.sh` to deploy backend and frontend
-13. Access your `domain` and `api.domain` URL to check the app is running.
+	2. Go to **/apps** folder and update **deploy.sh** file with above values.
+12. Go to **/apps** folder and run **deploy.sh** to deploy API and web app
+13. Access your **domain** and **api.domain** URL to check the app is running.
 
 ## Cleanup
 1. Run `terraform destroy`, then type `'yes'`
