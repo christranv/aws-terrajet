@@ -10,17 +10,17 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 ![nodejs](https://img.shields.io/badge/Node.js-18-3C873A?style=flat-square&logo=nodedotjs&logoColor=white)
 
 **Table of Contents**
-- [Features](#features)
-- [Design Diagram](#design-diagram)
-- [Supported modules](#supported-modules)
-- [Installation](#installation)
-- [Cleanup](#cleanup)
-- [Extra step for Production environment](#extra-step-for-production-environment)
-- [FAQ](#faq)
+- [🌱 Features](#-features)
+- [🏗 Design Diagram](#-design-diagram)
+- [📦 Supported modules](#-supported-modules)
+- [🛠 Installation](#-installation)
+- [🧹 Cleanup](#-cleanup)
+- [📌 Extra step for Production environment](#-extra-step-for-production-environment)
+- [❔ FAQ](#-faq)
 	- [Q: Why ECS is used for monolith app?](#q-why-ecs-is-used-for-monolith-app)
 	- [Q: Why is ECS but not Kubernetes?](#q-why-is-ecs-but-not-kubernetes)
 
-## Features
+## 🌱 Features
 - Support deploying Single-page application (React, Angular, Vue) to S3 and cached by CloudFront.
 - Support deploying SQL database to RDS.
 - Support deploying and automatic scaling **Dockerized** API to ECS cluster.
@@ -29,10 +29,10 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 - Provide TLS/SSL certificate with ACM
 - Provide Microservices adaptability for your future growth.
 
-## Design Diagram
+## 🏗 Design Diagram
 ![diagram](images/diagram.png)
 
-## Supported modules
+## 📦 Supported modules
 These AWS Terraform modules are supported by current version.
 
 | Name                   | Description                       |
@@ -72,7 +72,7 @@ These AWS Terraform modules are supported by current version.
 [r53r]: ./modules/route-53-record
 [acm]: ./modules/acm
 
-## Installation
+## 🛠 Installation
 This instruction can be used for **all environments** with **Development (Dev) environment** as an example.
 1. Install Terraform, AWS CLI, Docker to your machine.
 2. Create AWS account and bind credit card.
@@ -110,14 +110,14 @@ This instruction can be used for **all environments** with **Development (Dev) e
 12. Go to **/apps** folder and run **deploy.sh** to deploy API and web app
 13. Access your **'domain'** and **'api.domain'** URL to check the app is running.
 
-## Cleanup
+## 🧹 Cleanup
 1. Run `terraform destroy`, then type `'yes'`
 2. Delete your AWS account.
 
-## Extra step for Production environment
+## 📌 Extra step for Production environment
 - Move your Terraform state to safe backend like S3 or Terraform Cloud
 
-## FAQ
+## ❔ FAQ
 ### Q: Why ECS is used for monolith app?
 Deploying an app on AWS using EC2 is a commonly used and straightforward approach. However, it can be challenging to maintain and scale, particularly when working with Docker containers. On the other hand, ECS cluster may appear more complex at first glance, but it actually simplifies the process. With ECS, you leave all the container control tasks for it, allowing you to focus on your code.
 ### Q: Why is ECS but not Kubernetes?
