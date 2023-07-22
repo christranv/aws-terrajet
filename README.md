@@ -12,7 +12,7 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 **Table of Contents**
 - [🌱 Features](#-features)
 - [🏗 Design Diagram](#-design-diagram)
-- [📦 Supported modules](#-supported-modules)
+- [📦 Provided modules](#-provided-modules)
 - [🛠 Installation](#-installation)
 - [🧹 Cleanup](#-cleanup)
 - [📌 Extra step for Production environment](#-extra-step-for-production-environment)
@@ -32,8 +32,8 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 ## 🏗 Design Diagram
 ![diagram](images/diagram.png)
 
-## 📦 Supported modules
-These AWS Terraform modules are supported by current version.
+## 📦 Provided modules
+These AWS Terraform modules are provided by current version.
 
 | Name                   | Description                       |
 | ---------------------- | --------------------------------- |
