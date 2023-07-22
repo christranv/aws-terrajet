@@ -88,7 +88,7 @@ This instruction can be used for **all environments** with **Development (Dev) e
 8. Update RDS username, password and public key of 2 ssh keys created above to **secrets.dev.yaml**
 9. Run `terraform init`
 10. Run `terraform apply`, then type `'yes'`
-11. Update information of created services to DNS route and deploy.
+11. Update information of created services in **Output** section to domain provider and deploy section.
 
 	```
 	api_domain = "<your-domain>"

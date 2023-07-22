@@ -1,5 +1,5 @@
 locals {
-  devx = {
+  dev = {
     project    = "terrajet"
     account_id = "" # Update your AWS account Id
     profile    = "aws-terrajet-dev"
