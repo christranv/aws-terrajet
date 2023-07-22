@@ -10,7 +10,6 @@
 | [route.tf][vr]      | Route table                               |          |
 | [gateway.tf][vgw]   | Elastic IP, NAT Gateway, Internet Gateway |          |
 | [endpoints.tf][vep] | VPC Endpoints                             |   True   |
-| [locals.tf][vl]     | Local variables                           |          |
 | [variables.tf][vv]  | Input variables                           |          |
 | [outputs.tf][vo]    | Output variables                          |          |
 
@@ -20,6 +19,5 @@
 [vr]: route.tf
 [vgw]: gateway.tf
 [vep]: endpoints.tf
-[vl]: locals.tf
 [vv]: variables.tf
 [vo]: outputs.tf

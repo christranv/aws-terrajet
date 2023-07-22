@@ -37,6 +37,9 @@ provider "aws" {
 locals {
   environment = lower(terraform.workspace)
   vars        = module.envs.env
+  secrets = merge(
+    yamldecode(file("secrets/secrets.${local.environment}.yaml"))
+  )
 }
 
 module "envs" {

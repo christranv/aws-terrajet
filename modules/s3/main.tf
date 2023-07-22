@@ -13,10 +13,6 @@ resource "aws_s3_bucket_versioning" "this" {
     status = "Enabled"
   }
 }
-resource "aws_s3_bucket_acl" "this" {
-  bucket = aws_s3_bucket.this.id
-  acl    = var.is_public ? "public-read" : "private"
-}
 
 resource "aws_s3_bucket_public_access_block" "this" {
   bucket = aws_s3_bucket.this.id
@@ -44,7 +40,7 @@ locals {
   init_objects = flatten(
     [for key, value in var.init_folders :
       [
-        for file in fileset(value.localBasePath, "*") : { key = "${key}-${file}", file = file, localBasePath = value.localBasePath, s3BasePath = value.s3BasePath, acl = value.acl }
+        for file in fileset(value.localBasePath, "*") : { key = "${key}-${file}", file = file, localBasePath = value.localBasePath, s3BasePath = value.s3BasePath }
       ]
     ]
   )
@@ -53,7 +49,6 @@ locals {
 resource "aws_s3_object" "init_objects" {
   for_each = { for item in local.init_objects : item.key => item }
   bucket   = aws_s3_bucket.this.id
-  acl      = each.value.acl
   key      = "${each.value.s3BasePath}/${each.value.file}"
   source   = "${each.value.localBasePath}/${each.value.file}"
   etag     = filemd5("${each.value.localBasePath}/${each.value.file}")

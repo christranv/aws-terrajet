@@ -1,3 +1,5 @@
 .terraform*
 .terraform/*
 terraform*
+secrets.*.yaml
+test.*

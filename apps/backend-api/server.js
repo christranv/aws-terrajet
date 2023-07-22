@@ -3,13 +3,16 @@
 const express = require("express");
 
 // Constants
-const PORT = 8080;
 const HOST = "0.0.0.0";
+const PORT = 80;
 
 // App
 const app = express();
 app.get("/", (req, res) => {
   res.send("TerraJet Sample API");
+});
+app.get("/hc", (req, res) => {
+  res.send("healthy");
 });
 
 app.listen(PORT, HOST, () => {

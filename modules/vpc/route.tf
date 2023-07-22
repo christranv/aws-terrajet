@@ -25,13 +25,13 @@ resource "aws_route_table_association" "private_route_association" {
   subnet_id      = aws_subnet.private_subnet[count.index].id
 }
 
-# resource "aws_route" "nat_gw_route" {
-#   count                  = length(aws_nat_gateway.nat_gateway)
-#   route_table_id         = aws_route_table.private_route_table.id
-#   nat_gateway_id         = aws_nat_gateway.nat_gateway[count.index].id
-#   destination_cidr_block = "0.0.0.0/0"
-#   depends_on             = [aws_nat_gateway.nat_gateway]
-# }
+resource "aws_route" "nat_gw_route" {
+  count                  = length(aws_nat_gateway.nat_gateway)
+  route_table_id         = aws_route_table.private_route_table.id
+  nat_gateway_id         = aws_nat_gateway.nat_gateway[count.index].id
+  destination_cidr_block = "0.0.0.0/0"
+  depends_on             = [aws_nat_gateway.nat_gateway]
+}
 
 # Route the public subnet traffic through the Internet Gateway
 resource "aws_route" "public_internet_igw_route" {
