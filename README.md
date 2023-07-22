@@ -12,10 +12,10 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 **Table of Contents**
 - [🌱 Features](#-features)
 - [🏗 Design Diagram](#-design-diagram)
-- [📦 Provided modules](#-provided-modules)
+- [📦 Provided Modules](#-provided-modules)
 - [🛠 Installation](#-installation)
 - [🧹 Cleanup](#-cleanup)
-- [📌 Extra step for Production environment](#-extra-step-for-production-environment)
+- [📌 Extra step for Production](#-extra-step-for-production)
 - [❔ FAQ](#-faq)
 	- [Q: Why ECS is used for monolith app?](#q-why-ecs-is-used-for-monolith-app)
 	- [Q: Why is ECS but not Kubernetes?](#q-why-is-ecs-but-not-kubernetes)
@@ -32,7 +32,7 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 ## 🏗 Design Diagram
 ![diagram](images/diagram.png)
 
-## 📦 Provided modules
+## 📦 Provided Modules
 These AWS Terraform modules are provided by current version.
 
 | Name                   | Description                       |
@@ -114,7 +114,7 @@ This instruction can be used for **all environments** with **Development (Dev) e
 1. Run `terraform destroy`, then type `'yes'`
 2. Delete your AWS account.
 
-## 📌 Extra step for Production environment
+## 📌 Extra step for Production
 - Move your Terraform state to safe backend like S3 or Terraform Cloud
 
 ## ❔ FAQ
