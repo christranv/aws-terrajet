@@ -14,6 +14,8 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 - [Design Diagram](#design-diagram)
 - [Supported modules](#supported-modules)
 - [Installation](#installation)
+- [Cleanup](#cleanup)
+- [Extra step for Production environment](#extra-step-for-production-environment)
 - [FAQ](#faq)
 	- [Q: Why ECS is used for monolith app?](#q-why-ecs-is-used-for-monolith-app)
 	- [Q: Why is ECS but not Kubernetes?](#q-why-is-ecs-but-not-kubernetes)
@@ -23,7 +25,7 @@ TerraJet follows [AWS][aws] best practices to help your infrastructure archives 
 - Support deploying SQL database to RDS.
 - Support deploying and automatic scaling **Dockerized** API to ECS cluster.
 - Enable Role-Based Access Control for API app.
-- Enable spot instance mode in ECS to minimize computing cost.
+- Enable spot instance mode in ECS to save computing cost.
 - Provide TLS/SSL certificate with ACM
 - Provide Microservices adaptability for your future growth.
 
@@ -71,10 +73,49 @@ These AWS Terraform modules are supported by current version.
 [acm]: ./modules/acm
 
 ## Installation
-- Generate SSH for EC2 instances in ECS
+This instruction can be used for **all environments** with **Development (Dev) environment** as an example.
+1. Install Terraform, AWS CLI, Docker to your machine.
+2. Create AWS account and bind credit card.
+3. Prepare a domain.
+4. Create IAM user with **AdministratorAccess** policy and save AWS credentials to local machine with **aws-terrajet-dev** profile name
+5. Set up environment variables in *envs/dev.tf*
+6. Create 2 ssh keys for ECS and EC2 bastion
 	```
-	ssh-keygen -t ed25519 -f ~/.ssh/terrajet_dev_ec2_id_ed25519 -e -m pem
+	ssh-keygen -t ed25519 -f ~/.ssh/terrajet_dev_ecs
+	ssh-keygen -t ed25519 -f ~/.ssh/terrajet_dev_bastion
 	```
+7. Clone **template.secrets.env.yaml** secret template in **/secrets** folder with name **secrets.dev.yaml**
+8. Update RDS username, password and public key of 2 ssh keys created above to **secrets.dev.yaml**
+9. Run `terraform init`
+10. Run `terraform apply`, then type `'yes'`
+11. Update information of created services to DNS route and deploy.
+
+	```
+	api_domain = "<your-domain>"
+	bastion_dns = "<url>"
+	db_endpoint = "<url>"
+	ecr_repository_urls = {
+	"api" = "<url>"
+	}
+	route_53_ns = tolist([
+	"<ns>",
+	"<ns>",
+	"<ns>",
+	"<ns>",
+	])
+	s3_web_app_bucket_name = "terrajet-dev-static-web-app"
+	```
+	1. Update Route53 NS to your domain provider.
+	2. Go to **/apps** folder and update `deploy.sh` file with above values.
+12. Go to **/apps** folder and run `deploy.sh` to deploy backend and frontend
+13. Access your `domain` and `api.domain` URL to check the app is running.
+
+## Cleanup
+1. Run `terraform destroy`, then type `'yes'`
+2. Delete your AWS account.
+
+## Extra step for Production environment
+- Move your Terraform state to safe backend like S3 or Terraform Cloud
 
 ## FAQ
 ### Q: Why ECS is used for monolith app?

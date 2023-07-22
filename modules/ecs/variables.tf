@@ -52,7 +52,7 @@ variable "aws_iam_instance_profile" {
 
 variable "target_capacity" {
   type    = number
-  default = 1
+  default = 100
 }
 
 variable "autoscale_min" {

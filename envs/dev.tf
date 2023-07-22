@@ -1,7 +1,7 @@
 locals {
-  dev = {
+  devx = {
     project    = "terrajet"
-    account_id = "084618547938" # Add your AWS account Id
+    account_id = "" # Update your AWS account Id
     profile    = "aws-terrajet-dev"
     region     = "us-east-2" # Update your region
     network = {
@@ -11,7 +11,7 @@ locals {
       trust_ips     = ["0.0.0.0/0"]
     }
     route53 = {
-      domain = "terrajet.click"
+      domain = ""
     }
     rds = {
       engine            = "postgres"
@@ -31,7 +31,7 @@ locals {
       }
       service_discovery_ns          = "ecs.net"
       autoscale_min                 = 1
-      autoscale_max                 = 3
+      autoscale_max                 = 10
       service_placement_constraints = []
       service_ordered_placement_strategies = [
         {

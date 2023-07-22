@@ -18,6 +18,6 @@ output "db_endpoint" {
   value = module.rds_db.endpoint
 }
 
-output "bastion_ip" {
+output "bastion_dns" {
   value = module.ec2_bastion.public_dns
 }

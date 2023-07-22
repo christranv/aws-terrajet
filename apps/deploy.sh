@@ -1,7 +1,6 @@
-# Update these variables
-REPOSITORY=""
+REPOSITORY="" # Update from ouput ecr_repository_urls.api
 ENV="dev"
-REGION="us-east-2"
+REGION="us-east-2" # Update your region
 PROFILE="aws-terrajet-${ENV}"
 
 # Deploy frontend
