@@ -1,16 +1,20 @@
 resource "aws_ecs_cluster_capacity_providers" "this" {
   cluster_name       = aws_ecs_cluster.this.name
-  capacity_providers = [aws_ecs_capacity_provider.this.name]
+  capacity_providers = [aws_ecs_capacity_provider.spot.name]
 
   default_capacity_provider_strategy {
     base              = 1
     weight            = 100
-    capacity_provider = aws_ecs_capacity_provider.this.name
+    capacity_provider = aws_ecs_capacity_provider.spot.name
   }
 }
 
-resource "aws_ecs_capacity_provider" "this" {
-  name = "${var.project}-${var.env}-spot-capacity-provider"
+locals {
+  spot_capacity_provider_name = "spot-capacity-provider"
+}
+
+resource "aws_ecs_capacity_provider" "spot" {
+  name = local.spot_capacity_provider_name
   auto_scaling_group_provider {
     auto_scaling_group_arn         = aws_autoscaling_group.this.arn
     managed_termination_protection = "ENABLED"

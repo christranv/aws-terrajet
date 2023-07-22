@@ -9,7 +9,7 @@ resource "aws_ecs_service" "this" {
   deployment_maximum_percent         = 200
   force_new_deployment               = true
   capacity_provider_strategy {
-    capacity_provider = "${var.project}-${var.env}-capacity-provider"
+    capacity_provider = local.spot_capacity_provider_name
     base              = 0
     weight            = 1
   }
@@ -44,7 +44,7 @@ resource "aws_ecs_service" "this" {
     rollback = true
   }
 
-  depends_on = [aws_ecs_cluster.this, aws_ecs_capacity_provider.this, var.target_group_arns]
+  depends_on = [aws_ecs_cluster.this, aws_ecs_capacity_provider.spot, var.target_group_arns]
   lifecycle {
     ignore_changes = [capacity_provider_strategy]
   }

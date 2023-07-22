@@ -21,7 +21,8 @@ variable "service_discovery_ns" {
 variable "amis" {
   description = "EC2 AMIs by region"
   default = {
-    ap-southeast-1 = "ami-0e9b17c2a5411ea2f" # optimized AMI for ECS
+    us-east-2      = "ami-0a2f86088203932e1"
+    ap-southeast-1 = "ami-0e9b17c2a5411ea2f"
   }
 }
 
@@ -63,8 +64,9 @@ variable "autoscale_max" {
 }
 
 variable "autoscale_desired" {
-  type    = number
-  default = 1
+  type        = number
+  description = "Desired instances is decided by ASG capacity provider"
+  default     = 1
 }
 
 variable "private_subnet_ids" {

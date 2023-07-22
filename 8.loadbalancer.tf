@@ -10,5 +10,5 @@ module "network_load_balancer" {
   ecs_services             = local.vars.ecs_services
   listener_certificate_arn = module.asterisk_acm.cert_arn
   hc_interval              = 5
-  hc_timeout               = 20
+  hc_timeout               = 5
 }

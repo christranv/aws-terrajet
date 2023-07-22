@@ -16,7 +16,7 @@ module "ecs_keypair" {
   project    = local.vars.project
   env        = local.environment
   name       = "ecs"
-  public_key = local.vars.ecs.public_key
+  public_key = local.secrets.ecs_public_key
 }
 
 module "ecs_cluster" {
@@ -40,7 +40,6 @@ module "ecs_cluster" {
   target_group_arns                    = module.network_load_balancer.target_group_arns
   autoscale_min                        = local.vars.ecs.autoscale_min
   autoscale_max                        = local.vars.ecs.autoscale_max
-  autoscale_desired                    = 1 # This value is decided by ASG capacity provider
   service_ordered_placement_strategies = local.vars.ecs.service_ordered_placement_strategies
   // Network
   vpc_id             = module.vpc.vpc_id

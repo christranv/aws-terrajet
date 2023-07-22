@@ -6,7 +6,7 @@ resource "aws_lb" "this" {
   enable_cross_zone_load_balancing = true
 }
 
-resource "aws_alb_target_group" "this" {
+resource "aws_lb_target_group" "this" {
   for_each               = var.ecs_services
   name                   = "${var.project}-${each.key}-tg"
   target_type            = "ip"
@@ -29,16 +29,15 @@ resource "aws_alb_target_group" "this" {
 }
 
 # Listener (redirects traffic from the load balancer to the target group)
-resource "aws_alb_listener" "this" {
+resource "aws_lb_listener" "this" {
+  for_each          = aws_lb_target_group.this
   load_balancer_arn = aws_lb.this.id
-  for_each          = aws_alb_target_group.this
   port              = each.value.port
   protocol          = "TLS"
   certificate_arn   = var.listener_certificate_arn
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.this[each.key].arn
+    target_group_arn = aws_lb_target_group.this[each.key].arn
   }
-  # depends_on = [aws_alb_target_group.this]
 }

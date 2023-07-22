@@ -1,3 +1,8 @@
+locals {
+  public_subnet_ids  = [for subnet in aws_subnet.public_subnet : subnet.id]
+  private_subnet_ids = [for subnet in aws_subnet.private_subnet : subnet.id]
+}
+
 resource "aws_subnet" "public_subnet" {
   count                   = length(var.public_cidrs)
   vpc_id                  = aws_vpc.this.id
